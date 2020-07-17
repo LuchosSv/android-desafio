@@ -5,7 +5,7 @@ import com.example.androidparadigma.data.local.PersonEntity
 
 class Repository (private val localDataSource: LocalDataSource){
 
-    fun getPersonLocalRepositoryList() = localDataSource.getPersonLocalList()
+    fun getPersonLocalRepository() = localDataSource.getPersonLocal()
 
     suspend fun insertLocalRepositoryPerson(personEntity: PersonEntity) {
         localDataSource.insertLocalPerson(personEntity)

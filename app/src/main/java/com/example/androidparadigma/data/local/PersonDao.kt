@@ -9,9 +9,9 @@ import androidx.room.Query
 @Dao
 interface PersonDao {
 
-    //List local person
+    //Local person
     @Query("SELECT * FROM person_table")
-    fun getPersonLocalList(): LiveData<List<PersonEntity>>
+    fun getPersonLocal(): LiveData<PersonEntity>
 
     //insert local person
     @Insert(onConflict = OnConflictStrategy.REPLACE)

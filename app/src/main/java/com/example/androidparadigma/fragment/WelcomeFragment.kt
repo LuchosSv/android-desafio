@@ -1,6 +1,7 @@
 package com.example.androidparadigma.fragment
 
 import android.os.Bundle
+import android.view.ContextMenu
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import com.example.androidparadigma.R
 import com.example.androidparadigma.databinding.FragmentWelcomeBinding
@@ -28,16 +31,16 @@ class WelcomeFragment : Fragment(), AdapterView.OnItemSelectedListener {
         binding.lifecycleOwner = this@WelcomeFragment
         binding.person = this@WelcomeFragment.personViewModel
 
-        //val birth = "$day $month $year"
+        personViewModel.localPersonList
 
         ArrayAdapter.createFromResource(
-            requireContext(),R.array.day, android.R.layout.simple_spinner_item
-        ).also {adapter ->
+            requireContext(), R.array.day, android.R.layout.simple_spinner_item
+        ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             binding.spinnerDay.adapter = adapter
         }
 
-        binding.buttonWelcomeFragment.setOnClickListener{
+        binding.buttonWelcomeFragment.setOnClickListener {
             personViewModel.insertLocalPerson(
                 id = 1,
                 nombre = binding.editTextNombre.text.toString(),
@@ -45,7 +48,7 @@ class WelcomeFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 ocupacion = binding.editTextOcupacion.text.toString(),
                 nacimiento = "04-08-1997"
             )
-            //findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToPostsFragment())
+            findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToPostsFragment())
         }
 
         return binding.root

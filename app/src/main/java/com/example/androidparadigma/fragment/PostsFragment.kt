@@ -1,20 +1,35 @@
 package com.example.androidparadigma.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import com.example.androidparadigma.R
+import com.example.androidparadigma.databinding.FragmentPostsBinding
+import com.example.androidparadigma.viewmodel.PersonViewModel
 
 class PostsFragment : Fragment() {
+
+    private lateinit var binding: FragmentPostsBinding
+    private val personPostViewModel: PersonViewModel by viewModels {
+        PersonViewModel.PersonListViewModelFactory(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_posts, container, false)
+        //return inflater.inflate(R.layout.fragment_posts, container, false)
+        binding = FragmentPostsBinding.inflate(inflater)
+        binding.lifecycleOwner = this@PostsFragment
+        binding.personPost = this@PostsFragment.personPostViewModel
+
+        
+
+        return binding.root
     }
 
 }

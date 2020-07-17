@@ -16,7 +16,8 @@ class PersonViewModel (private val applicationContext: Context): ViewModel(){
     private val dao = PersonDatabase.getInstance(applicationContext).PersonDao()
     private val repository = Repository(LocalDataSource(dao))
 
-    val localPersonList: LiveData<List<PersonEntity>> = repository.getPersonLocalRepositoryList()
+    val localPersonList: LiveData<PersonEntity> = repository.getPersonLocalRepository()
+
     fun insertLocalPerson(id: Int, nombre: String, apellido: String, ocupacion: String, nacimiento: String){
         viewModelScope.launch {
             repository.insertLocalRepositoryPerson(PersonEntity(id = id, nombre = nombre, apellido = apellido, ocupacion = ocupacion, nacimiento = nacimiento))

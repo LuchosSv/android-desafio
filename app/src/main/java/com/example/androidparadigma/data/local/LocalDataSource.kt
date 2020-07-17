@@ -5,7 +5,7 @@ import kotlinx.coroutines.withContext
 
 class LocalDataSource (private val personDao: PersonDao){
 
-    fun getPersonLocalList() = personDao.getPersonLocalList()
+    fun getPersonLocal() = personDao.getPersonLocal()
 
     suspend fun insertLocalPerson(userEntity: PersonEntity) = withContext(Dispatchers.IO) {
         personDao.insertLocalPerson(userEntity)
