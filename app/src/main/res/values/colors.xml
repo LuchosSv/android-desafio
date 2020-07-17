@@ -3,10 +3,11 @@
     <color name="primaryColor">#48e5c2</color>
     <color name="primaryLightColor">#84fff5</color>
     <color name="primaryDarkColor">#00b292</color>
-    <color name="secondaryColor">#483d3f</color>
+    <color name="secondaryColor">#483D3F</color>
     <color name="secondaryLightColor">#74676a</color>
     <color name="secondaryDarkColor">#201719</color>
     <color name="primaryTextColor">#000000</color>
     <color name="secondaryTextColor">#ffffff</color>
 
+    <color name="backgroundColor">#E5E5E5</color>
 </resources>
