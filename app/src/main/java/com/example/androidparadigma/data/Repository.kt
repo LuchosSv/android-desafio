@@ -7,8 +7,8 @@ class Repository (private val localDataSource: LocalDataSource){
 
     fun getPersonLocalRepositoryList() = localDataSource.getPersonLocalList()
 
-    suspend fun insertLocalRepositoryPerson(userEntity: PersonEntity) {
-        localDataSource.insertLocalPerson(userEntity)
+    suspend fun insertLocalRepositoryPerson(personEntity: PersonEntity) {
+        localDataSource.insertLocalPerson(personEntity)
     }
 
 }

@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="person"
+            type="com.example.androidparadigma.viewmodel.PersonViewModel" />
     </data>
 
     <LinearLayout
@@ -113,7 +115,7 @@
                         android:layout_weight="1"
                         android:layout_marginEnd="8dp"
                         android:background="@drawable/custom_spinner"
-                        android:entries="@array/day" />
+                         />
 
                     <Spinner
                         android:id="@+id/spinner_month"
@@ -144,6 +146,11 @@
                     android:layout_marginTop="40dp"
                     android:layout_marginBottom="16dp"
                     android:text="@string/text_continuar" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(person.localPersonList.size())}"/>
 
             </LinearLayout>
 

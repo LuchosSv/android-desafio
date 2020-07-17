@@ -16,15 +16,21 @@ class PersonViewModel (private val applicationContext: Context): ViewModel(){
     private val dao = PersonDatabase.getInstance(applicationContext).PersonDao()
     private val repository = Repository(LocalDataSource(dao))
 
-    val localUsersList: LiveData<List<PersonEntity>> = repository.getPersonLocalRepositoryList()
-
-    /*fun saveLocalUser(firstname: String, lastname: String, age: Int) {
+    val localPersonList: LiveData<List<PersonEntity>> = repository.getPersonLocalRepositoryList()
+    fun insertLocalPerson(id: Int, nombre: String, apellido: String, ocupacion: String, nacimiento: String){
         viewModelScope.launch {
-            repository.insertLocalRepositoryPerson(PersonEntity(firstName = firstname, lastName = lastname, age = age))
+            repository.insertLocalRepositoryPerson(PersonEntity(id = id, nombre = nombre, apellido = apellido, ocupacion = ocupacion, nacimiento = nacimiento))
         }
-    }*/
+    }
+    /*
+    fun saveLocalUser(firstname: String, lastname: String, age: Int) {
+        viewModelScope.launch {
+            repository.saveLocalUser(UserEntity(firstName = firstname, lastName = lastname, age = age))
+        }
+    }
+    */
 
-    class UsersListViewModelFactory(private val app: Context) : ViewModelProvider.Factory {
+    class PersonListViewModelFactory(private val app: Context) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(PersonViewModel::class.java)) {
                 return PersonViewModel(app) as T
