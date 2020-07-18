@@ -11,4 +11,5 @@ class LocalDataSource (private val personDao: PersonDao){
         personDao.insertLocalPerson(userEntity)
     }
 
+    fun getCountPersonLocal() = personDao.getCountPersonLocal()
 }

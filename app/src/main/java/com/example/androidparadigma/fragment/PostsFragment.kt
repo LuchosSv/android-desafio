@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import com.example.androidparadigma.R
 import com.example.androidparadigma.databinding.FragmentPostsBinding
 import com.example.androidparadigma.viewmodel.PersonViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class PostsFragment : Fragment() {
 
@@ -27,7 +28,12 @@ class PostsFragment : Fragment() {
         binding.lifecycleOwner = this@PostsFragment
         binding.personPost = this@PostsFragment.personPostViewModel
 
-        
+        /*binding.menuContainer.setOnNavigationItemSelectedListener { item ->
+            when(item.itemId){
+                R.id.postsFragment -> ,
+                R.id.profileFragment ->
+            }
+        }*/
 
         return binding.root
     }

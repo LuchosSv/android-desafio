@@ -33,6 +33,7 @@ class WelcomeFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
         personViewModel.localPersonList
 
+        //fill spinners
         ArrayAdapter.createFromResource(
             requireContext(), R.array.day, android.R.layout.simple_spinner_item
         ).also { adapter ->
@@ -40,6 +41,7 @@ class WelcomeFragment : Fragment(), AdapterView.OnItemSelectedListener {
             binding.spinnerDay.adapter = adapter
         }
 
+        //Save user when register in app
         binding.buttonWelcomeFragment.setOnClickListener {
             personViewModel.insertLocalPerson(
                 id = 1,

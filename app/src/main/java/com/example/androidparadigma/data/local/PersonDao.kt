@@ -17,4 +17,8 @@ interface PersonDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertLocalPerson(userEntity: PersonEntity)
 
+    //Count person
+    @Query("SELECT COUNT(*) FROM person_table")
+    fun getCountPersonLocal(): LiveData<Int>
+
 }

@@ -11,4 +11,6 @@ class Repository (private val localDataSource: LocalDataSource){
         localDataSource.insertLocalPerson(personEntity)
     }
 
+    fun getCountPersonLocal() = localDataSource.getCountPersonLocal()
+
 }
