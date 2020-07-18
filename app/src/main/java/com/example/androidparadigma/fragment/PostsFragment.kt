@@ -8,8 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.androidparadigma.R
+import com.example.androidparadigma.adapter.PostsAdapter
 import com.example.androidparadigma.databinding.FragmentPostsBinding
 import com.example.androidparadigma.viewmodel.PersonViewModel
+import com.example.androidparadigma.viewmodel.PostsViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class PostsFragment : Fragment() {
@@ -18,22 +20,20 @@ class PostsFragment : Fragment() {
     private val personPostViewModel: PersonViewModel by viewModels {
         PersonViewModel.PersonListViewModelFactory(requireContext())
     }
+    private val postsViewModel: PostsViewModel by viewModels {
+        PostsViewModel.PostsViewModelFactory(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //return inflater.inflate(R.layout.fragment_posts, container, false)
         binding = FragmentPostsBinding.inflate(inflater)
         binding.lifecycleOwner = this@PostsFragment
         binding.personPost = this@PostsFragment.personPostViewModel
+        binding.posts = this@PostsFragment.postsViewModel
 
-        /*binding.menuContainer.setOnNavigationItemSelectedListener { item ->
-            when(item.itemId){
-                R.id.postsFragment -> ,
-                R.id.profileFragment ->
-            }
-        }*/
+        binding.recycleViewPosts.adapter = PostsAdapter()
 
         return binding.root
     }

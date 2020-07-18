@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.example.androidparadigma.data.remote.PostsEntity
 
 @Dao
 interface PersonDao {
@@ -20,5 +21,9 @@ interface PersonDao {
     //Count person
     @Query("SELECT COUNT(*) FROM person_table")
     fun getCountPersonLocal(): LiveData<Int>
+
+    //Local posts lists
+    @Query("SELECT * FROM posts_table")
+    fun getPostsListLocal(): LiveData<PostsEntity>
 
 }

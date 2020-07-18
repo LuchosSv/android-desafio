@@ -12,4 +12,5 @@ class LocalDataSource (private val personDao: PersonDao){
     }
 
     fun getCountPersonLocal() = personDao.getCountPersonLocal()
+    fun getListProfileLocal() = personDao.getPostsListLocal()
 }

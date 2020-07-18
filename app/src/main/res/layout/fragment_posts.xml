@@ -4,23 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <variable
+            name="posts"
+            type="com.example.androidparadigma.viewmodel.PostsViewModel" />
         <variable
             name="personPost"
             type="com.example.androidparadigma.viewmodel.PersonViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context=".fragment.PostsFragment">
 
-        <TextView
-            android:id="@+id/msg"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{personPost.localPersonList.nombre}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="150dp"
+            android:background="@color/secondaryColor"
+            android:padding="@dimen/padding">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text='@{"Hola, "+personPost.localPersonList.nombre}'
+                android:textColor="@color/secondaryTextColor"
+                android:textSize="40sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginTop="50dp"
+                android:text="@string/text_posts_informacion"
+                android:textColor="@color/secondaryTextColor" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/padding">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycleView_posts"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:sendPostList="@{posts.postsList}"
+                tools:listitem="@layout/posts_list_adapter"
+                android:clipToPadding="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 </layout>

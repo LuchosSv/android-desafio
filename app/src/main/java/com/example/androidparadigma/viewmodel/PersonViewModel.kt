@@ -9,12 +9,13 @@ import com.example.androidparadigma.data.Repository
 import com.example.androidparadigma.data.local.LocalDataSource
 import com.example.androidparadigma.data.local.PersonDatabase
 import com.example.androidparadigma.data.local.PersonEntity
+import com.example.androidparadigma.data.remote.RemoteDataSource
 import kotlinx.coroutines.launch
 
 class PersonViewModel (private val applicationContext: Context): ViewModel(){
 
     private val dao = PersonDatabase.getInstance(applicationContext).PersonDao()
-    private val repository = Repository(LocalDataSource(dao))
+    private val repository = Repository(LocalDataSource(dao), RemoteDataSource())
 
     val localPersonList: LiveData<PersonEntity> = repository.getPersonLocalRepository()
 
