@@ -21,7 +21,7 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="125dp"
+            android:layout_height="50dp"
             android:background="@color/secondaryColor"
             android:paddingStart="@dimen/padding"
             android:paddingEnd="@dimen/padding"
@@ -31,24 +31,21 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text='@{"Hola, "+personPost.localPersonList.nombre}'
-                android:textColor="@color/secondaryTextColor"
-                android:textSize="40sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:layout_marginTop="50dp"
                 android:text="@string/text_posts_informacion"
-                android:textColor="@color/secondaryTextColor" />
+                android:textColor="@color/secondaryTextColor"
+                android:gravity="center"
+                android:textSize="18sp" />
+
         </FrameLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="@dimen/padding">
+            android:paddingStart="@dimen/padding"
+            android:paddingEnd="@dimen/padding"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycleView_posts"

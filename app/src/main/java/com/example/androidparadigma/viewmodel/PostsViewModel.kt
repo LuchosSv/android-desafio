@@ -6,6 +6,7 @@ import androidx.lifecycle.*
 import com.example.androidparadigma.data.Repository
 import com.example.androidparadigma.data.local.LocalDataSource
 import com.example.androidparadigma.data.local.PersonDatabase
+import com.example.androidparadigma.data.remote.PostsEntity
 import com.example.androidparadigma.data.remote.RemoteDataSource
 import com.example.androidparadigma.model.PostsResponse
 import kotlinx.coroutines.launch
@@ -20,6 +21,8 @@ class PostsViewModel(private val applicationContext: Context): ViewModel(){
     val postsList: LiveData<List<PostsResponse>>
         get() = _postsList
 
+    val localPostsList: LiveData<List<PostsEntity>> = repository.getListPostsLocal()
+
     init {
         getPostList()
     }
@@ -27,7 +30,7 @@ class PostsViewModel(private val applicationContext: Context): ViewModel(){
     private fun getPostList() {
         viewModelScope.launch {
             try {
-                _postsList.value = repository.getUserByRepository()
+                _postsList.value = repository.getPostListRemote()
                 Log.i("viewModel", "Success")
             } catch (e: Exception) {
                 Log.e("viewModel", "Error, ${e.message}")

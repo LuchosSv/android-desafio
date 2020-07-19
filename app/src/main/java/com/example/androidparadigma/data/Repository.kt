@@ -11,19 +11,25 @@ class Repository(
 ) {
 
     //REMOTE
-    
-    suspend fun getUserByRepository(): List<PostsResponse> {
+
+    //get list if posts
+    suspend fun getPostListRemote(): List<PostsResponse> {
         return remoteDataSource.getPostListRemote()
     }
 
     //LOCAL
 
+    //get object person
     fun getPersonLocalRepository() = localDataSource.getPersonLocal()
 
+    //insert object person
     suspend fun insertLocalRepositoryPerson(personEntity: PersonEntity) {
         localDataSource.insertLocalPerson(personEntity)
     }
 
+    //get tables created
     fun getCountPersonLocal() = localDataSource.getCountPersonLocal()
+    //get list of posts local //fail
+    fun getListPostsLocal() = localDataSource.getListPostsLocal()
 
 }

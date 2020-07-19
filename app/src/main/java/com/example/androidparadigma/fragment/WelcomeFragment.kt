@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.observe
@@ -31,7 +32,8 @@ class WelcomeFragment : Fragment(), AdapterView.OnItemSelectedListener {
         binding.lifecycleOwner = this@WelcomeFragment
         binding.person = this@WelcomeFragment.personViewModel
 
-        personViewModel.localPersonList
+        //set opacity button
+        binding.buttonWelcomeFragment.background.alpha = 128
 
         //fill spinners
         ArrayAdapter.createFromResource(
@@ -43,14 +45,26 @@ class WelcomeFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
         //Save user when register in app
         binding.buttonWelcomeFragment.setOnClickListener {
-            personViewModel.insertLocalPerson(
-                id = 1,
-                nombre = binding.editTextNombre.text.toString(),
-                apellido = binding.editTextApellido.text.toString(),
-                ocupacion = binding.editTextOcupacion.text.toString(),
-                nacimiento = "04-08-1997"
-            )
-            findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToPostsFragment())
+
+            //validate if camp is not null
+            if (binding.editTextNombre.text.isEmpty()) {
+                Toast.makeText(context, "Campo nombre requerido", Toast.LENGTH_LONG).show()
+            } else if (binding.editTextApellido.text.isEmpty()) {
+                Toast.makeText(context, "Campo apellido requerido", Toast.LENGTH_LONG).show()
+            } else if (binding.editTextOcupacion.text.isEmpty()) {
+                Toast.makeText(context, "Campo nombre requerido", Toast.LENGTH_LONG).show()
+            } else {
+                //save user register in database
+                personViewModel.insertLocalPerson(
+                    id = 1,
+                    nombre = "Enrique",//binding.editTextNombre.text.toString(),
+                    apellido = "Aguilar",//binding.editTextApellido.text.toString(),
+                    ocupacion = "Develop",//binding.editTextOcupacion.text.toString(),
+                    nacimiento = "04-08-1997"
+                )
+                //navigation to postsFragment
+                findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToPostsFragment())
+            }
         }
 
         return binding.root

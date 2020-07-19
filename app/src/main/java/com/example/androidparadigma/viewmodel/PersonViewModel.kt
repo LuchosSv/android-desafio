@@ -17,20 +17,15 @@ class PersonViewModel (private val applicationContext: Context): ViewModel(){
     private val dao = PersonDatabase.getInstance(applicationContext).PersonDao()
     private val repository = Repository(LocalDataSource(dao), RemoteDataSource())
 
+    //get object person of database
     val localPersonList: LiveData<PersonEntity> = repository.getPersonLocalRepository()
 
+    //insert object person in database
     fun insertLocalPerson(id: Int, nombre: String, apellido: String, ocupacion: String, nacimiento: String){
         viewModelScope.launch {
             repository.insertLocalRepositoryPerson(PersonEntity(id = id, nombre = nombre, apellido = apellido, ocupacion = ocupacion, nacimiento = nacimiento))
         }
     }
-    /*
-    fun saveLocalUser(firstname: String, lastname: String, age: Int) {
-        viewModelScope.launch {
-            repository.saveLocalUser(UserEntity(firstName = firstname, lastName = lastname, age = age))
-        }
-    }
-    */
 
     class PersonListViewModelFactory(private val app: Context) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {

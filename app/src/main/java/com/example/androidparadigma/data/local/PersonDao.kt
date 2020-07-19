@@ -24,6 +24,6 @@ interface PersonDao {
 
     //Local posts lists
     @Query("SELECT * FROM posts_table")
-    fun getPostsListLocal(): LiveData<PostsEntity>
+    fun getPostsListLocal(): LiveData<List<PostsEntity>>
 
 }
