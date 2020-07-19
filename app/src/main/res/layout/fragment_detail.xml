@@ -76,7 +76,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="top|center"
+                android:gravity="top|start|center_vertical"
                 android:paddingStart="80dp"
                 android:paddingTop="90dp"
                 android:paddingEnd="@dimen/padding"
