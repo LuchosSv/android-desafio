@@ -18,13 +18,14 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="125dp"
+            android:layout_height="75dp"
             android:background="@color/secondaryColor">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding"
+                android:gravity="center_vertical"
                 android:text="@string/text_bienvenido"
                 android:textColor="@color/secondaryTextColor"
                 android:textSize="40sp" />
@@ -32,8 +33,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="50dp"
-                android:padding="@dimen/padding"
+                android:paddingStart="225dp"
+                android:gravity="center_vertical"
+                android:paddingTop="@dimen/padding"
+                android:paddingEnd="@dimen/padding"
+                android:paddingBottom="@dimen/padding"
                 android:text="@string/text_informacion"
                 android:textColor="@color/secondaryTextColor" />
         </FrameLayout>
@@ -61,8 +65,8 @@
                     android:id="@+id/edit_text_nombre"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:maxLength="10"
-                    android:background="@drawable/custom_input_text" />
+                    android:background="@drawable/custom_input_text"
+                    android:maxLength="10" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -77,8 +81,8 @@
                     android:id="@+id/edit_text_apellido"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:maxLength="10"
-                    android:background="@drawable/custom_input_text" />
+                    android:background="@drawable/custom_input_text"
+                    android:maxLength="10" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -93,8 +97,8 @@
                     android:id="@+id/edit_text_ocupacion"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:maxLength="30"
-                    android:background="@drawable/custom_input_text" />
+                    android:background="@drawable/custom_input_text"
+                    android:maxLength="30" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -146,11 +150,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold"
                     android:layout_marginTop="40dp"
                     android:layout_marginBottom="16dp"
-                    android:text="@string/text_continuar" />
+                    android:text="@string/text_continuar"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 

@@ -9,6 +9,7 @@
     <string name="text_perfil">Perfil</string>
     <string name="text_bienvenido">Bienvenido</string>
     <string name="text_informacion">Para brindarte una experiencia mas personalizada, por favor llena el siguiente formulario</string>
+    <string name="text_informacion_bienvenido"><b>Bienvenido</b> Para brindarte una experiencia mas personalizada, por favor llena el siguiente formulario</string>
     <string name="text_nombre">Nombre</string>
     <string name="text_apellido">Apellido</string>
     <string name="text_ocupacion">Ocupacion</string>
