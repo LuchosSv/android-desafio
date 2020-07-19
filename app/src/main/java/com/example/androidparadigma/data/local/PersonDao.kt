@@ -1,10 +1,7 @@
 package com.example.androidparadigma.data.local
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.example.androidparadigma.data.remote.PostsEntity
 
 @Dao
@@ -29,5 +26,9 @@ interface PersonDao {
     //Local, insert posts to local data
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertPostsLocal(postsEntity: PostsEntity)
+
+    //Local, delete posts
+    @Delete
+    suspend fun deletePosts(postsEntity: PostsEntity)
 
 }

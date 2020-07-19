@@ -11,7 +11,10 @@ import com.example.androidparadigma.databinding.PostsListAdapterBinding
 import com.example.androidparadigma.databinding.ProfileListAdapterBinding
 import kotlinx.android.synthetic.main.profile_list_adapter.view.*
 
-class ProfileAdapter(private val onClickListener: ProfileAdapter.OnClickListener) :
+class ProfileAdapter(
+    private val onClickListener: ProfileAdapter.OnClickListener,
+    private val onClickListener2: ProfileAdapter.OnClickListener2
+) :
     ListAdapter<PostsEntity, ProfileAdapter.ProfileViewHolder>(DiffCallBack) {
 
     class ProfileViewHolder(private val binding: ProfileListAdapterBinding) :
@@ -51,14 +54,21 @@ class ProfileAdapter(private val onClickListener: ProfileAdapter.OnClickListener
 
     override fun onBindViewHolder(holder: ProfileViewHolder, position: Int) {
         val item = getItem(position)
-        holder.itemView.cardView_posts_profile.setOnClickListener {
+        holder.itemView.posts_profile.setOnClickListener {
             onClickListener.onClick(item)
+        }
+        holder.itemView.posts_delete.setOnClickListener {
+            onClickListener2.onClick2(item)
         }
         holder.boom(item)
     }
 
     class OnClickListener(val clickListener: (postsEntity: PostsEntity) -> Unit) {
         fun onClick(postsEntity: PostsEntity) = clickListener(postsEntity)
+    }
+
+    class OnClickListener2(val clickListener: (postsEntity: PostsEntity) -> Unit) {
+        fun onClick2(postsEntity: PostsEntity) = clickListener(postsEntity)
     }
 
 }

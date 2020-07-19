@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -38,7 +39,7 @@ class ProfileFragment : Fragment() {
         binding.profile = this@ProfileFragment.profileViewModel
         binding.personPostProfile = this@ProfileFragment.personViewModel
 
-        binding.recycleViewProfile.adapter = ProfileAdapter(getPostsToProfileCallback())
+        binding.recycleViewProfile.adapter = ProfileAdapter(getPostsToProfileCallback(), getPostsToProfileCallback2())
 
         return binding.root
     }
@@ -47,6 +48,11 @@ class ProfileFragment : Fragment() {
         this.findNavController().navigate(
             ProfileFragmentDirections.actionProfileFragmentToDetailFragment(it.id)
         )
+    }
+
+    private fun getPostsToProfileCallback2() = ProfileAdapter.OnClickListener2 {
+        Toast.makeText(context, "Posts Eliminado", Toast.LENGTH_LONG).show()
+        profileViewModel.deleteLocalUser(it)
     }
 
 }

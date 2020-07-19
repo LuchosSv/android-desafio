@@ -47,7 +47,9 @@ class Repository(
     //get list of posts to database
     fun getListPostLocal() = localDataSource.getListPostsLocal()
 
-    //get tables created, fail
-    fun getCountPersonLocal() = localDataSource.getCountPersonLocal()
+    //delete object posts from list to database
+    suspend fun deletePostsLocal(postsEntity: PostsEntity){
+        localDataSource.deletePostsLocal(postsEntity)
+    }
 
 }

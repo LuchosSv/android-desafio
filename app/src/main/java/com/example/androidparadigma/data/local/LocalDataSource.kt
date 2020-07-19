@@ -19,4 +19,8 @@ class LocalDataSource (private val personDao: PersonDao){
     fun getListPostsLocal() = personDao.getPostsListLocal()
 
     fun getCountPersonLocal() = personDao.getCountPersonLocal()
+
+    suspend fun deletePostsLocal(postsEntity: PostsEntity) = withContext(Dispatchers.IO) {
+        personDao.deletePosts(postsEntity)
+    }
 }
