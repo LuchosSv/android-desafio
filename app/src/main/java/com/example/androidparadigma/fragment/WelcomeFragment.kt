@@ -57,9 +57,9 @@ class WelcomeFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 //save user register in database
                 personViewModel.insertLocalPerson(
                     id = 1,
-                    nombre = "Enrique",//binding.editTextNombre.text.toString(),
-                    apellido = "Aguilar",//binding.editTextApellido.text.toString(),
-                    ocupacion = "Develop",//binding.editTextOcupacion.text.toString(),
+                    nombre = binding.editTextNombre.text.toString(),
+                    apellido = binding.editTextApellido.text.toString(),
+                    ocupacion = binding.editTextOcupacion.text.toString(),
                     nacimiento = "04-08-1997"
                 )
                 //navigation to postsFragment

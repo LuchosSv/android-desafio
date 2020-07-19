@@ -9,11 +9,12 @@
     </data>
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView_posts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        app:cardElevation="8dp"
-        app:cardCornerRadius="8dp">
+        app:cardElevation="4dp"
+        app:cardCornerRadius="4dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,10 +37,10 @@
                     android:id="@+id/number_id_post"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:textFontWeight="800"
+                    android:fontFamily="@font/bowlby_one"
                     android:gravity="center"
-                    android:textStyle="bold"
-                    android:textSize="40sp"/>
+                    android:textSize="32sp"
+                    android:textStyle="bold" />
 
             </FrameLayout>
 

@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity() {
             when (destination.id) {
                 R.id.postsFragment -> showBottomNav()
                 R.id.profileFragment -> showBottomNav()
+                R.id.detailFragment -> showBottomNav()
                 else -> hideBottomNav()
             }
         }

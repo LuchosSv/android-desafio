@@ -10,8 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.androidparadigma.data.remote.PostsEntity
 import com.example.androidparadigma.databinding.PostsListAdapterBinding
 import com.example.androidparadigma.model.PostsResponse
+import kotlinx.android.synthetic.main.posts_list_adapter.view.*
 
-class PostsAdapter() : ListAdapter<PostsResponse, PostsAdapter.PostsViewHolder>(DiffCallBack) {
+class PostsAdapter(private val onClickListener: OnClickListener) : ListAdapter<PostsResponse, PostsAdapter.PostsViewHolder>(DiffCallBack) {
 
     class PostsViewHolder(private val binding: PostsListAdapterBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -54,7 +55,14 @@ class PostsAdapter() : ListAdapter<PostsResponse, PostsAdapter.PostsViewHolder>(
 
     override fun onBindViewHolder(holder: PostsViewHolder, position: Int) {
         val item = getItem(position)
+        holder.itemView.cardView_posts.setOnClickListener {
+            onClickListener.onClick(item)
+        }
         holder.boom(item)
+    }
+
+    class OnClickListener(val clickListener: (postsResponse: PostsResponse) -> Unit) {
+        fun onClick(postsResponse: PostsResponse) = clickListener(postsResponse)
     }
 
 }
