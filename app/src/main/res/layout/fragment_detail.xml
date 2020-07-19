@@ -5,25 +5,125 @@
 
     <data>
 
+        <variable
+            name="postsDetail"
+            type="com.example.androidparadigma.viewmodel.PostsViewModel" />
+        <variable
+            name="commentDetail"
+            type="com.example.androidparadigma.viewmodel.CommentsViewModel" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/backgroundColor"
         android:orientation="vertical"
         tools:context=".fragment.DetailFragment">
 
-        <!-- TODO: Update blank fragment layout -->
-        <TextView
+        <FrameLayout
+            android:id="@+id/container_post_by_id"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name" />
+            android:layout_height="200dp">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:src="@tools:sample/avatars" />
+            <ImageView
+                android:id="@+id/image_back_button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="@dimen/padding"
+                android:layout_marginTop="@dimen/padding"
+                android:padding="8dp"
+                android:src="@drawable/ic_baseline_arrow" />
 
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/padding"
+                android:layout_marginEnd="@dimen/padding"
+                android:padding="8dp"
+                android:src="@drawable/ic_baseline_share" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="@dimen/padding"
+                android:text="@string/posts"
+                android:textSize="24sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/bowlby_one"
+                android:gravity="center_vertical|start"
+                android:paddingStart="@dimen/padding"
+                android:paddingTop="32dp"
+                android:text="@{String.valueOf(postsDetail.postsById.id)}"
+                android:textColor="@color/backgroundColor"
+                android:textSize="100sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="top|center"
+                android:paddingStart="80dp"
+                android:paddingTop="64dp"
+                android:paddingEnd="32dp"
+                android:text="@{postsDetail.postsById.title}"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="top|center"
+                android:paddingStart="80dp"
+                android:paddingTop="90dp"
+                android:paddingEnd="@dimen/padding"
+                android:paddingBottom="@dimen/padding"
+                android:text="@{postsDetail.postsById.body}" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:orientation="vertical"
+            android:background="@color/secondaryColor">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="4dp"
+                android:textSize="18sp"
+                android:text="@string/text_comentarios"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycleView_comments"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:sendCommentsList="@{commentDetail.commentsList}"
+                android:padding="@dimen/padding"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floating_action_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_gravity="end|bottom"
+                app:srcCompat="@drawable/ic_baseline_star"/>
+
+        </FrameLayout>
     </LinearLayout>
 </layout>

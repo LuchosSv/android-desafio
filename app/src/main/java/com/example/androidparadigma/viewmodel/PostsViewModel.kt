@@ -21,12 +21,23 @@ class PostsViewModel(private val applicationContext: Context): ViewModel(){
     val postsList: LiveData<List<PostsResponse>>
         get() = _postsList
 
-    val localPostsList: LiveData<List<PostsEntity>> = repository.getListPostsLocal()
+    private val _postsById = MutableLiveData<PostsResponse>()
+    val postsById: LiveData<PostsResponse>
+        get() = _postsById
+
+
+
+    fun insertPostsLocal(postsEntity: PostsEntity){
+        viewModelScope.launch {
+            repository.insertPostsLocal(postsEntity)
+        }
+    }
 
     init {
         getPostList()
     }
 
+    //get list of posts
     private fun getPostList() {
         viewModelScope.launch {
             try {
@@ -34,6 +45,18 @@ class PostsViewModel(private val applicationContext: Context): ViewModel(){
                 Log.i("viewModel", "Success")
             } catch (e: Exception) {
                 Log.e("viewModel", "Error, ${e.message}")
+            }
+        }
+    }
+
+    //get object posts with argument
+    fun getProfileData(id: Int){
+        viewModelScope.launch {
+            try {
+                _postsById.value = repository.getPostsByIdRemote(id)
+                Log.i("viewModel", "Success by id")
+            } catch (e: Exception) {
+                Log.e("viewModel, Profile", "Error by id, ${e.message}")
             }
         }
     }
@@ -46,6 +69,5 @@ class PostsViewModel(private val applicationContext: Context): ViewModel(){
             throw IllegalArgumentException("Invalid Viewmodel")
         }
     }
-
 
 }

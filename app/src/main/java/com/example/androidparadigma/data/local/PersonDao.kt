@@ -26,4 +26,8 @@ interface PersonDao {
     @Query("SELECT * FROM posts_table")
     fun getPostsListLocal(): LiveData<List<PostsEntity>>
 
+    //Local, insert posts to local data
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertPostsLocal(postsEntity: PostsEntity)
+
 }

@@ -8,5 +8,9 @@ class RemoteDataSource (){
 
     suspend fun getPostListRemote() = request.getPosts()
 
+    suspend fun getPostByIdRemote(id: Int) = request.getPostsById(id)
+
+    suspend fun getComments() = request.getComments()
+
 }
 

@@ -2,7 +2,9 @@ package com.example.androidparadigma.data
 
 import com.example.androidparadigma.data.local.LocalDataSource
 import com.example.androidparadigma.data.local.PersonEntity
+import com.example.androidparadigma.data.remote.PostsEntity
 import com.example.androidparadigma.data.remote.RemoteDataSource
+import com.example.androidparadigma.model.CommentsResponse
 import com.example.androidparadigma.model.PostsResponse
 
 class Repository(
@@ -12,9 +14,19 @@ class Repository(
 
     //REMOTE
 
-    //get list if posts
+    //get list of posts
     suspend fun getPostListRemote(): List<PostsResponse> {
         return remoteDataSource.getPostListRemote()
+    }
+
+    //get posts by id
+    suspend fun getPostsByIdRemote(id: Int): PostsResponse{
+        return remoteDataSource.getPostByIdRemote(id)
+    }
+
+    //get list of comments
+    suspend fun getComments(): List<CommentsResponse>{
+        return remoteDataSource.getComments()
     }
 
     //LOCAL
@@ -27,9 +39,15 @@ class Repository(
         localDataSource.insertLocalPerson(personEntity)
     }
 
-    //get tables created
+    //save posts in favorite, local
+    suspend fun insertPostsLocal(postsEntity: PostsEntity){
+        localDataSource.insertPostsLocal(postsEntity)
+    }
+
+    //get list of posts to database
+    fun getListPostLocal() = localDataSource.getListPostsLocal()
+
+    //get tables created, fail
     fun getCountPersonLocal() = localDataSource.getCountPersonLocal()
-    //get list of posts local //fail
-    fun getListPostsLocal() = localDataSource.getListPostsLocal()
 
 }
