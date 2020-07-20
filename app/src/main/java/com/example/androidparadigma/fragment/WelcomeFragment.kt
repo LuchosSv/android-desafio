@@ -43,7 +43,7 @@ class WelcomeFragment : Fragment(), AdapterView.OnItemSelectedListener {
         //Save user when register in app
         binding.buttonWelcomeFragment.setOnClickListener {
 
-            //validate if camp is not null
+            //validate if editText is null
             if (binding.editTextNombre.text.isEmpty()) {
                 Toast.makeText(context, "Campo nombre requerido", Toast.LENGTH_LONG).show()
             } else if (binding.editTextApellido.text.isEmpty()) {
