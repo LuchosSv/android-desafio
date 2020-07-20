@@ -41,6 +41,9 @@ class PostsViewModel(private val applicationContext: Context) : ViewModel() {
     val errorMessage: LiveData<String>
         get() = _errorMessage
 
+    //TEST
+    val getTwo = repository.getListPostLocal()
+
     fun insertPostsLocal(postsEntity: PostsEntity) {
         viewModelScope.launch {
             repository.insertPostsLocal(postsEntity)

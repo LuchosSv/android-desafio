@@ -17,6 +17,7 @@ import com.example.androidparadigma.data.remote.PostsEntity
 import com.example.androidparadigma.databinding.FragmentDetailBinding
 import com.example.androidparadigma.viewmodel.CommentsViewModel
 import com.example.androidparadigma.viewmodel.PostsViewModel
+import com.example.androidparadigma.viewmodel.ProfileViewModel
 
 
 class DetailFragment : Fragment() {
