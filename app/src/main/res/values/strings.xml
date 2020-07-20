@@ -17,6 +17,7 @@
     <string name="text_posts_informacion">Aqui tienes una lista de los posts mas recientes</string>
     <string name="text_comentarios">Comentarios recientes</string>
     <string name="posts">Posts</string>
+    <string name="text_error_message">Error al conectarse, revisa tu coneccion</string>
 
     <string-array name="day">
         <item>1</item>

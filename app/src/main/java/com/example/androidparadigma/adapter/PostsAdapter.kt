@@ -17,8 +17,6 @@ class PostsAdapter(private val onClickListener: OnClickListener) : ListAdapter<P
     class PostsViewHolder(private val binding: PostsListAdapterBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun boom(postsResponse: PostsResponse) {
-            Log.i("adapter", "msg")
-
             //par
             if (postsResponse.id % 2 == 0){
                 binding.imageColor.setBackgroundColor(Color.parseColor("#CCE2A3"))

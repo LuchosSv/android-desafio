@@ -61,8 +61,9 @@
                     android:id="@+id/edit_text_nombre"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:maxLength="10"
-                    android:background="@drawable/custom_input_text" />
+                    android:background="@drawable/custom_input_text"
+                    android:inputType="textPersonName"
+                    android:maxLength="10" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -77,8 +78,9 @@
                     android:id="@+id/edit_text_apellido"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:maxLength="10"
-                    android:background="@drawable/custom_input_text" />
+                    android:background="@drawable/custom_input_text"
+                    android:inputType="textPersonName"
+                    android:maxLength="10" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -93,8 +95,9 @@
                     android:id="@+id/edit_text_ocupacion"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:maxLength="30"
-                    android:background="@drawable/custom_input_text" />
+                    android:background="@drawable/custom_input_text"
+                    android:inputType="text"
+                    android:maxLength="30" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -146,11 +149,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold"
                     android:layout_marginTop="40dp"
                     android:layout_marginBottom="16dp"
-                    android:text="@string/text_continuar" />
+                    android:text="@string/text_continuar"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
