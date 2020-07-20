@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidparadigma.data.remote.PostsEntity
-import com.example.androidparadigma.databinding.PostsListAdapterBinding
 import com.example.androidparadigma.databinding.ProfileListAdapterBinding
 import kotlinx.android.synthetic.main.profile_list_adapter.view.*
 

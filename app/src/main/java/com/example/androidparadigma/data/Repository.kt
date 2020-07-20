@@ -52,4 +52,6 @@ class Repository(
         localDataSource.deletePostsLocal(postsEntity)
     }
 
+    fun getCountPersonLocal() = localDataSource.getCountPersonLocal()
+
 }

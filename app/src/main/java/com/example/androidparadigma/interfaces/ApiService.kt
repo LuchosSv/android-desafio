@@ -1,6 +1,5 @@
 package com.example.androidparadigma.interfaces
 
-import com.example.androidparadigma.data.remote.PostsEntity
 import com.example.androidparadigma.model.CommentsResponse
 import com.example.androidparadigma.model.PostsResponse
 import retrofit2.http.GET

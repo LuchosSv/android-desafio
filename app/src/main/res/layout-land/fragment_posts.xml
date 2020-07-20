@@ -8,6 +8,7 @@
         <variable
             name="posts"
             type="com.example.androidparadigma.viewmodel.PostsViewModel" />
+
         <variable
             name="personPost"
             type="com.example.androidparadigma.viewmodel.PersonViewModel" />
@@ -24,39 +25,62 @@
             android:layout_height="50dp"
             android:background="@color/secondaryColor"
             android:paddingStart="@dimen/padding"
-            android:paddingEnd="@dimen/padding"
             android:paddingTop="8dp"
+            android:paddingEnd="@dimen/padding"
             android:paddingBottom="8dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="@string/text_posts_informacion"
                 android:textColor="@color/secondaryTextColor"
-                android:gravity="center"
                 android:textSize="18sp" />
 
         </FrameLayout>
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:paddingStart="@dimen/padding"
-            android:paddingEnd="@dimen/padding"
             android:paddingTop="8dp"
+            android:paddingEnd="@dimen/padding"
             android:paddingBottom="8dp">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:progressBarVisibility="@{posts.status}" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="35dp"
+                android:src="@drawable/ic_connection_error"
+                app:connectionError="@{posts.status}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="35dp"
+                android:gravity="center"
+                android:text="@string/text_error_message"
+                app:errorMessageText="@{posts.errorMessage}"
+                app:errorMessageVisibility="@{posts.status}" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycleView_posts"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:sendPostList="@{posts.postsList}"
-                tools:listitem="@layout/posts_list_adapter"
                 android:clipToPadding="false"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:sendPostList="@{posts.postsList}"
+                tools:listitem="@layout/posts_list_adapter" />
 
-        </LinearLayout>
+        </FrameLayout>
 
     </LinearLayout>
 </layout>

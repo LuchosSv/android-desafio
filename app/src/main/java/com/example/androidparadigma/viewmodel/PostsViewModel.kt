@@ -70,9 +70,7 @@ class PostsViewModel(private val applicationContext: Context) : ViewModel() {
         viewModelScope.launch {
             try {
                 _postsById.value = repository.getPostsByIdRemote(id)
-                Log.i("viewModel", "Success by id")
             } catch (e: Exception) {
-                Log.e("viewModel, Profile", "Error by id, ${e.message}")
             }
         }
     }

@@ -1,13 +1,11 @@
 package com.example.androidparadigma.adapter
 
 import android.graphics.Color
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androidparadigma.data.remote.PostsEntity
 import com.example.androidparadigma.databinding.PostsListAdapterBinding
 import com.example.androidparadigma.model.PostsResponse
 import kotlinx.android.synthetic.main.posts_list_adapter.view.*

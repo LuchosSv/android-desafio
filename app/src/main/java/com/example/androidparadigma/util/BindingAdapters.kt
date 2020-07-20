@@ -79,3 +79,5 @@ fun errorConnection(image: ImageView, message: String?) {
         }
     }
 }
+
+
